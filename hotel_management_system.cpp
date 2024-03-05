@@ -19,6 +19,7 @@ void show();
 };
 void Hotel::menu(){
 int choice;
+do{
 cout<<"\n"<<endl;
 cout<<"\t------------WELCOME TO HOTEL MANAGEMENT SYSTEM-----------\n "<<endl;
 cout<<"\n\t------------------HOTEL MANAGEMENT SYSTEM------------------";
@@ -34,23 +35,25 @@ cin>>choice;
 switch(choice){
 case 1:
 insert();
-menu();
+break;
 case 2:
 search();
-menu();
+break;
 case 3:
 update();
-menu();
+break;
 case 4:
 del();
-menu();
+break;
 case 5:
 sort();
 show();
-menu();
+break;
 default:
 cout<<"INVALID";
+break;
 }
+}while(choice!=6);
 }
 void Hotel::insert(){
 cout<<"\n\t---------------HOTEL MANAGEMENT SYSTEM--------------\n";
@@ -61,7 +64,7 @@ cout<<"Enter Customer Name:"<<endl;
 cin>>newNode->name;
 cout<<"Enter Allocated Date:"<<endl;
 cin>>newNode->date;
-cout<<"Enter Room Type(single/double/twin):"<<endl;
+cout<<"Enter Room Type(single/double/deluxe):"<<endl;
 cin>>newNode->roomtype;
 
 if(head==NULL){
@@ -118,6 +121,7 @@ cin>>ptr->date;
 cout<<"\nRoom Type";
 cin>>ptr->roomtype;
 cout<<"\n\n\t\t Updated Record Sucessfully";
+break;
 }
 ptr=ptr->next;
 }
@@ -152,6 +156,9 @@ break;
 pre=ptr;
 ptr=ptr->next;
 }
+if(ptr==NULL){
+    cout<<"Room ot found."<<endl;
+}
 }
 }
 void Hotel::show(){
@@ -161,7 +168,7 @@ cout<<"\n\n Room ID:"<<ptr->id;
 cout<<"\n\n Customer  Name:"<<ptr->name;
 cout<<"\n\n Allocated Date:"<<ptr->date;
 cout<<"\n\n Room Type:"<<ptr->roomtype;
-ptr->next;
+ptr=ptr->next;
 }
 }
 void Hotel::sort(){
