@@ -3,7 +3,8 @@ using namespace std;
 class Hotel{
 private:
 struct  Node{
-int id,date;
+int id;
+string date;
 string name,roomtype;
 Node*next;
 };
@@ -62,11 +63,11 @@ cout<<"Enter Room ID:"<<endl;
 cin>>newNode->id;
 cout<<"Enter Customer Name:"<<endl;
 cin>>newNode->name;
-cout<<"Enter Allocated Date:"<<endl;
+cout<<"Enter Allocated Date:(YYYY-MM-DD)"<<endl;
 cin>>newNode->date;
 cout<<"Enter Room Type(single/double/deluxe):"<<endl;
 cin>>newNode->roomtype;
-
+newNode->next=NULL;
 if(head==NULL){
 head=newNode;
 }
@@ -157,7 +158,7 @@ pre=ptr;
 ptr=ptr->next;
 }
 if(ptr==NULL){
-    cout<<"Room ot found."<<endl;
+    cout<<"Room Not found."<<endl;
 }
 }
 }
